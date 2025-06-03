@@ -1,8 +1,11 @@
 import Link from 'next/link';
-import { CookingPot, Mail, Phone } from 'lucide-react';
+import { CookingPot, Mail, Phone, Instagram, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const phoneNumber = "12345678900";
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello LijoFoods! I'm interested in your services.")}`;
+  const instagramLink = "https://www.instagram.com/_lijofoods?igsh=MXFxbGd4ZjdqY21tYg==";
 
   return (
     <footer id="contact" className="w-full bg-primary text-primary-foreground py-12 md:py-16">
@@ -26,6 +29,7 @@ export default function Footer() {
               <li><Link href="#cuisine" className="hover:text-accent transition-colors">Our Cuisine</Link></li>
               <li><Link href="#services" className="hover:text-accent transition-colors">Services</Link></li>
               <li><Link href="#reviews" className="hover:text-accent transition-colors">Testimonials</Link></li>
+              <li><Link href="#location" className="hover:text-accent transition-colors">Our Location</Link></li>
             </ul>
           </div>
           <div>
@@ -43,6 +47,17 @@ export default function Footer() {
               <li className="pt-2">
                 <p className="font-semibold">Business Hours:</p>
                 <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+              </li>
+               <li className="pt-2">
+                <h4 className="font-semibold mb-1">Follow Us:</h4>
+                <div className="flex space-x-3">
+                  <a href={instagramLink} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-accent transition-colors">
+                    <Instagram size={22} />
+                  </a>
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-accent transition-colors">
+                    <MessageCircle size={22} />
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
