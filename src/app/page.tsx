@@ -7,11 +7,12 @@ import ReviewSection from '@/components/review-section';
 import WhatsAppButton from '@/components/whatsapp-button';
 import Footer from '@/components/footer';
 
+
 const heroImages = [
-  { src: 'https://placehold.co/1920x1080.png', alt: 'Delicious Nigerian food spread', hint: 'nigerian food feast' },
-  { src: 'https://placehold.co/1920x1081.png', alt: 'Jollof rice in a bowl', hint: 'jollof rice bowl' }, // Changed height slightly for unique URL
-  { src: 'https://placehold.co/1920x1082.png', alt: 'Assorted suya platter', hint: 'suya platter' }, // Changed height slightly for unique URL
-  { src: 'https://placehold.co/1920x1083.png', alt: 'Egusi soup with fufu', hint: 'egusi soup fufu' }, // Changed height slightly for unique URL
+  { src: '/images/abdul-raheem-kannath-STl2IjIGWr0-unsplash.jpg', alt: 'Delicious Nigerian food spread', hint: 'nigerian food feast' },
+  { src: '/images/alfredo-burgos-FI64E7mPW00-unsplash.jpg', alt: 'Jollof rice in a bowl', hint: 'jollof rice bowl' }, // Changed height slightly for unique URL
+  { src: '/images/dr-muhammad-amer-77ItGP98s6g-unsplash.jpg', alt: 'Assorted suya platter', hint: 'suya platter' }, // Changed height slightly for unique URL
+  { src: '/images/alfredo-burgos-QlUnRKyfkQ8-unsplash.jpg', alt: 'Egusi soup with fufu', hint: 'egusi soup fufu' }, // Changed height slightly for unique URL
 ];
 
 export default function HomePage() {
