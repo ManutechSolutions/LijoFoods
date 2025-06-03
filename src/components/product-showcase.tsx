@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { UtensilsCrossed, CakeSlice, ShoppingBasket } from 'lucide-react';
+import { UtensilsCrossed, CakeSlice, ShoppingBasket, PartyPopper, LayoutPanelLeft, Soup } from 'lucide-react';
 
 const services = [
   {
@@ -23,6 +23,27 @@ const services = [
     image: 'https://placehold.co/600x400.png',
     icon: <CakeSlice className="h-10 w-10 text-primary mb-4" />,
     hint: "party food platter"
+  },
+  {
+    title: 'Small Chops',
+    description: 'A delightful assortment of bite-sized Nigerian snacks, perfect for any gathering or as appetizers.',
+    image: 'https://placehold.co/600x400.png',
+    icon: <PartyPopper className="h-10 w-10 text-primary mb-4" />,
+    hint: "nigerian small chops"
+  },
+  {
+    title: 'Food Trays',
+    description: 'Beautifully arranged food trays, ideal for meetings, small parties, or as a thoughtful culinary gift.',
+    image: 'https://placehold.co/600x400.png',
+    icon: <LayoutPanelLeft className="h-10 w-10 text-primary mb-4" />,
+    hint: "nigerian food tray"
+  },
+  {
+    title: 'Delicious Soup Bowls',
+    description: 'Hearty and flavorful traditional Nigerian soups, served in convenient bowls for easy enjoyment.',
+    image: 'https://placehold.co/600x400.png',
+    icon: <Soup className="h-10 w-10 text-primary mb-4" />,
+    hint: "nigerian soup bowl"
   },
 ];
 
