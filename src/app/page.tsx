@@ -10,10 +10,10 @@ import Footer from '@/components/footer';
 
 
 const heroImages = [
-  { src: 'https://placehold.co/1920x1080/EADDCA/5D4037?text=Jollof+Rice', alt: 'Delicious Jollof Rice', hint: 'jollof rice feast' },
-  { src: 'https://placehold.co/1920x1081/F2D4C7/A1887F?text=Suya+Platter', alt: 'Assorted Suya Platter', hint: 'suya platter assorted' },
-  { src: 'https://placehold.co/1920x1082/D1C4E9/4527A0?text=Egusi+Soup', alt: 'Egusi Soup with Pounded Yam', hint: 'egusi soup fufu' },
-  { src: 'https://placehold.co/1920x1083/C8E6C9/2E7D32?text=Nigerian+Catering', alt: 'Nigerian Food Catering Spread', hint: 'nigerian food catering' },
+  { src: '/images/femoree-kn_ANxnwCQ0-unsplash.jpg', alt: 'Delicious Nigerian food spread', hint: 'nigerian food feast' },
+  { src: '/images/alfredo-burgos-LAhQ2YdD-T8-unsplash.jpg', alt: 'Jollof rice in a bowl', hint: 'jollof rice bowl' },
+  { src: '/images/dr-muhammad-amer-d0ey0aExQbk-unsplash.jpg', alt: 'Assorted suya platter', hint: 'suya platter' },
+  { src: '/images/mario-raj-n1z3gc9gJ8I-unsplash.jpg', alt: 'Egusi soup with fufu', hint: 'egusi soup fufu' },
 ];
 
 export default function HomePage() {

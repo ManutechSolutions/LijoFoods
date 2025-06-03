@@ -1,4 +1,3 @@
-
 "use client";
 
 import type { LatLngExpression } from 'leaflet'; // Type imports are safe
