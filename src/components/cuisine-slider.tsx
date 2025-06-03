@@ -6,12 +6,12 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import React, { useRef } from 'react';
 
 const dishes = [
-  { name: 'Jollof Rice', image: 'https://placehold.co/400x300.png', description: 'Smoky party jollof, a true delight.', hint: 'jollof rice' },
-  { name: 'Egusi Soup', image: 'https://placehold.co/400x300.png', description: 'Rich melon seed soup with assorted meats.', hint: 'egusi soup' },
-  { name: 'Suya', image: 'https://placehold.co/400x300.png', description: 'Spicy grilled meat skewers, a street food classic.', hint: 'suya meat' },
-  { name: 'Pounded Yam & Egusi', image: 'https://placehold.co/400x300.png', description: 'Classic combo for a hearty meal.', hint: 'pounded yam' },
-  { name: 'Moi Moi', image: 'https://placehold.co/400x300.png', description: 'Steamed bean pudding, savory and delicious.', hint: 'moi moi' },
-  { name: 'Fried Rice', image: 'https://placehold.co/400x300.png', description: 'Colorful and flavorful Nigerian fried rice.', hint: 'fried rice' },
+  { name: 'Jollof Rice', image: '/images/istockphoto-644430366-612x612.jpg', description: 'Smoky party jollof, a true delight.', hint: 'jollof rice' },
+  { name: 'Egusi Soup', image: '/images/istockphoto-498311434-612x612.jpg', description: 'Rich melon seed soup with assorted meats.', hint: 'egusi soup' },
+  { name: 'Beans & Plantain', image: 'images/istockphoto-1448028211-612x612.jpg', description: 'Better soft beans with ripe plantain', hint: 'beans and plantain' },
+  { name: 'Pounded Yam & Efo Riro', image: '/images/femoree-kn_ANxnwCQ0-unsplash.jpg', description: 'Classic combo for a hearty meal.', hint: 'pounded yam' },
+  { name: 'Moi Moi', image: '/images/femi-oyekoya-rbEtzd20Qcw-unsplash.jpg', description: 'Steamed bean pudding, savory and delicious.', hint: 'moi moi' },
+  { name: 'Fried Rice', image: '/images/istockphoto-1299613532-612x612.jpg', description: 'Colorful and flavorful Nigerian fried rice.', hint: 'fried rice' },
 ];
 
 export default function CuisineSlider() {

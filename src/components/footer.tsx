@@ -37,7 +37,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail size={18} />
-                <span>orders@lijofoods.com</span>
+                <span>Address- No 64, Ijaye Road, Benedita plaza, Ogba, Lagos 
+                </span>
               </li>
               <li className="pt-2">
                 <p className="font-semibold">Business Hours:</p>

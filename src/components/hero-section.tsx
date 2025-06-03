@@ -30,12 +30,12 @@ export default function HeroSection({ images }: HeroSectionProps) {
 
   const defaultContent = (
     <>
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10  z-10"></div>
       <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
-        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl text-primary mb-6 leading-tight">
+        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl text-foreground/90 mb-6 leading-tight">
           Savor Authentic Nigerian Flavors
         </h1>
-        <p className="font-body text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto mb-10">
+        <p className="font-body text-xl md:text-2xl text-foreground/100 font-semibold max-w-3xl mx-auto mb-10">
           Experience the rich taste of Nigeria with LijoFoods. We offer premium catering services for all your events, bringing traditional recipes and modern elegance to your table.
         </p>
         <div className="space-x-4">
@@ -73,7 +73,7 @@ export default function HeroSection({ images }: HeroSectionProps) {
           objectFit="cover"
           quality={80}
           className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? 'opacity-30' : 'opacity-0'
+            index === currentIndex ? 'opacity-80' : 'opacity-0'
           }`}
           data-ai-hint={image.hint}
           priority={index === 0} // Prioritize the first image for LCP

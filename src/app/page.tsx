@@ -9,10 +9,10 @@ import Footer from '@/components/footer';
 
 
 const heroImages = [
-  { src: '/images/abdul-raheem-kannath-STl2IjIGWr0-unsplash.jpg', alt: 'Delicious Nigerian food spread', hint: 'nigerian food feast' },
-  { src: '/images/alfredo-burgos-FI64E7mPW00-unsplash.jpg', alt: 'Jollof rice in a bowl', hint: 'jollof rice bowl' }, // Changed height slightly for unique URL
-  { src: '/images/dr-muhammad-amer-77ItGP98s6g-unsplash.jpg', alt: 'Assorted suya platter', hint: 'suya platter' }, // Changed height slightly for unique URL
-  { src: '/images/alfredo-burgos-QlUnRKyfkQ8-unsplash.jpg', alt: 'Egusi soup with fufu', hint: 'egusi soup fufu' }, // Changed height slightly for unique URL
+  { src: '/images/femoree-kn_ANxnwCQ0-unsplash.jpg', alt: 'Delicious Nigerian food spread', hint: 'nigerian food feast' },
+  { src: '/images/alfredo-burgos-LAhQ2YdD-T8-unsplash.jpg', alt: 'Jollof rice in a bowl', hint: 'jollof rice bowl' },
+  { src: '/images/dr-muhammad-amer-d0ey0aExQbk-unsplash.jpg', alt: 'Assorted suya platter', hint: 'suya platter' },
+  { src: '/images/mario-raj-n1z3gc9gJ8I-unsplash.jpg', alt: 'Egusi soup with fufu', hint: 'egusi soup fufu' },
 ];
 
 export default function HomePage() {
