@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { useState, useEffect } from 'react';
-// import Image from 'next/image';
-// import Logo from '../../public/images/logo2.jpg'; // Adjust the path as necessary
+import Image from 'next/image';
+import Logo from '../../public/images/logo.png';
 
 const navLinks = [
   { href: '#hero', label: 'Home' },
@@ -72,10 +72,10 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="#hero" legacyBehavior>
-            <a className="flex items-center space-x-2 text-primary hover:opacity-80 transition-opacity">
-              {/* <Image src={Logo} alt='Logo' className='w-7  h-7'/> */}
-              <CookingPot size={32} />
-              <span className="font-headline text-3xl">LijoFoods</span>
+            <a className="flex items-center space-x-2 text-primary hover:opacity-80 transition-opacity w-[80px] h-[80px] rounded-full bg-[#9f5c2d]">
+              <Image src={Logo} alt='Logo' className=' object-cover'/>
+              {/* <CookingPot size={32} /> */}
+              {/* <span className="font-headline text-3xl">LijoFoods</span> */}
             </a>
           </Link>
           <nav className="hidden md:flex items-center space-x-2">

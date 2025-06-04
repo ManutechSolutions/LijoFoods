@@ -3,45 +3,45 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { UtensilsCrossed, CakeSlice, ShoppingBasket, PartyPopper, LayoutPanelLeft, Soup } from 'lucide-react';
 
 const services = [
-  {
-    title: 'Wedding Catering',
-    description: 'Elegant and memorable culinary experiences for your special day. Full buffet or plated service available.',
-    image: 'https://placehold.co/600x400.png',
-    icon: <ShoppingBasket className="h-10 w-10 text-primary mb-4" />,
-    hint: "wedding catering food"
-  },
-  {
-    title: 'Corporate Events',
-    description: 'Professional catering for business lunches, conferences, and corporate parties. Impress your clients and colleagues.',
-    image: 'https://placehold.co/600x400.png',
-    icon: <UtensilsCrossed className="h-10 w-10 text-primary mb-4" />,
-    hint: "corporate event food"
-  },
-  {
-    title: 'Private Parties',
-    description: 'From birthdays to anniversaries, we provide delicious food that makes your celebration extra special.',
-    image: 'https://placehold.co/600x400.png',
-    icon: <CakeSlice className="h-10 w-10 text-primary mb-4" />,
-    hint: "party food platter"
-  },
+  // {
+  //   title: 'Wedding Catering',
+  //   description: 'Elegant and memorable culinary experiences for your special day. Full buffet or plated service available.',
+  //   image: 'https://placehold.co/600x400.png',
+  //   icon: <ShoppingBasket className="h-10 w-10 text-primary mb-4" />,
+  //   hint: "wedding catering food"
+  // },
+  // {
+  //   title: 'Corporate Events',
+  //   description: 'Professional catering for business lunches, conferences, and corporate parties. Impress your clients and colleagues.',
+  //   image: 'https://placehold.co/600x400.png',
+  //   icon: <UtensilsCrossed className="h-10 w-10 text-primary mb-4" />,
+  //   hint: "corporate event food"
+  // },
+  // {
+  //   title: 'Private Parties',
+  //   description: 'From birthdays to anniversaries, we provide delicious food that makes your celebration extra special.',
+  //   image: 'https://placehold.co/600x400.png',
+  //   icon: <CakeSlice className="h-10 w-10 text-primary mb-4" />,
+  //   hint: "party food platter"
+  // },
   {
     title: 'Small Chops',
     description: 'A delightful assortment of bite-sized Nigerian snacks, perfect for any gathering or as appetizers.',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/istockphoto-1406317020-612x612.jpg',
     icon: <PartyPopper className="h-10 w-10 text-primary mb-4" />,
     hint: "nigerian small chops"
   },
   {
     title: 'Food Trays',
     description: 'Beautifully arranged food trays, ideal for meetings, small parties, or as a thoughtful culinary gift.',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/istockphoto-1159523456-612x612.jpg',
     icon: <LayoutPanelLeft className="h-10 w-10 text-primary mb-4" />,
     hint: "nigerian food tray"
   },
   {
     title: 'Delicious Soup Bowls',
     description: 'Hearty and flavorful traditional Nigerian soups, served in convenient bowls for easy enjoyment.',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/istockphoto-989472454-612x612.jpg',
     icon: <Soup className="h-10 w-10 text-primary mb-4" />,
     hint: "nigerian soup bowl"
   },

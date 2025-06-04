@@ -38,7 +38,7 @@ export default function CuisineSlider() {
       if (scrollContainerRef.current && scrollContainerRef.current.children.length > originalDishes.length) {
         const firstOriginalItem = scrollContainerRef.current.children[originalDishes.length] as HTMLElement;
         if (firstOriginalItem) {
-          scrollContainerRef.current.scrollTo({ left: firstOriginalItem.offsetLeft, behavior: 'instant' });
+          scrollContainerRef.current.scrollTo({ left: firstOriginalItem.offsetLeft, behavior: 'smooth' });
         }
       }
       setIsReady(true);

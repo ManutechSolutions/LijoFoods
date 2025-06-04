@@ -1,12 +1,13 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { MessageSquareText } from 'lucide-react'; // Using MessageSquareText as a WhatsApp-like icon
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppButton() {
-  const phoneNumber = "12345678900"; // Replace with actual phone number including country code without + or 00
-  const message = "Hello LijoFoods! I'm interested in your catering services.";
+  const message = "Hello LijoFoods! I'm interested coming from your website, I want ";
+  const phoneNumber = "2347067724236";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  
 
   return (
     <a
@@ -21,7 +22,7 @@ export default function WhatsAppButton() {
         className="rounded-full shadow-xl p-4 h-16 w-16 bg-green-500 hover:bg-green-600 text-white
                    transition-all duration-300 ease-in-out transform group-hover:scale-110"
       >
-        <MessageSquareText size={32} />
+        <FaWhatsapp style={{height: '2em', width: '2em'}} />
         <span className="sr-only">Order via WhatsApp</span>
       </Button>
       <span 

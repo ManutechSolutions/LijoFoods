@@ -4,24 +4,27 @@ import { Star } from 'lucide-react';
 
 const reviews = [
   {
-    name: 'Adeola Johnson',
-    avatar: 'https://placehold.co/100x100.png',
+    firstName: 'Adeola ',
+    lastName: 'Johnson',
+    // avatar: 'https://placehold.co/100x100.png',
     avatarHint: 'smiling person',
     review: "LijoFoods catered my wedding and it was phenomenal! The Jollof rice was the best I've ever had. Highly recommended!",
     rating: 5,
     event: "Wedding Reception"
   },
   {
-    name: 'Chinedu Nwosu',
-    avatar: 'https://placehold.co/100x100.png',
+    firstName: 'Chinedu',
+    lastName: 'Nwosu',
+    // avatar: 'https://placehold.co/100x100.png',
     avatarHint: 'professional person',
     review: "Their corporate catering service is top-notch. Punctual, professional, and the food was absolutely delicious. Our clients were impressed.",
     rating: 5,
     event: "Corporate Luncheon"
   },
   {
-    name: 'Fatima Bello',
-    avatar: 'https://placehold.co/100x100.png',
+    firstName: 'Fatima',
+    lastName: 'Bello',
+    // avatar: 'https://placehold.co/100x100.png',
     avatarHint: 'happy customer',
     review: "Used LijoFoods for my daughter's birthday party. The kids and adults loved the variety and taste. The Suya was a hit!",
     rating: 4,
@@ -42,11 +45,11 @@ export default function ReviewSection() {
             <Card key={index} className="flex flex-col bg-background shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center space-x-4 p-6">
                 <Avatar className="h-16 w-16">
-                  <AvatarImage src={review.avatar} alt={review.name} data-ai-hint={review.avatarHint} />
-                  <AvatarFallback>{review.name.substring(0, 2)}</AvatarFallback>
+                  {/* <AvatarImage src={review.avatar} alt={review.firstName.charAt(0) + review.lastName.charAt(0)} data-ai-hint={review.avatarHint} /> */}
+                  <AvatarFallback className='font-semibold text-xl text-primary'>{review.firstName.charAt(0) + review.lastName.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <CardTitle className="font-headline text-xl text-primary">{review.name}</CardTitle>
+                  <CardTitle className="font-headline text-xl text-primary">{review.firstName + ' ' + review.lastName}</CardTitle>
                   <p className="text-sm text-muted-foreground font-body">{review.event}</p>
                 </div>
               </CardHeader>

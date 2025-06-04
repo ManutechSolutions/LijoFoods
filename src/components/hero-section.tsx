@@ -44,11 +44,11 @@ export default function HeroSection({ images }: HeroSectionProps) {
               Explore Our Menu
             </Button>
           </Link>
-          <Link href="#contact" passHref>
+          <a href={`https://wa.me/2347067724236?text=${encodeURIComponent("Hello LijoFoods! I'm interested coming from your website, I want ")}`} target="_blank" rel="noopener noreferrer">
             <Button size="lg" variant="outline" className="font-body text-lg px-8 py-6 border-primary text-primary hover:bg-primary/10">
-              Book Catering
+              Order Now
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </>

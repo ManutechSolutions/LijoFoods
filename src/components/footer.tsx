@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import { CookingPot, Mail, Phone, Instagram, MessageCircle } from 'lucide-react';
+import { CookingPot, Mail, Phone, Instagram, MapPin, } from 'lucide-react';
+import {FaWhatsapp} from 'react-icons/fa'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const phoneNumber = "12345678900";
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello LijoFoods! I'm interested in your services.")}`;
+  const phoneNumber = "2347067724236";
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello LijoFoods! I'm interested coming from your website, I want ")}`;
   const instagramLink = "https://www.instagram.com/_lijofoods?igsh=MXFxbGd4ZjdqY21tYg==";
 
   return (
@@ -37,10 +38,10 @@ export default function Footer() {
             <ul className="space-y-3 font-body text-sm">
               <li className="flex items-center space-x-2">
                 <Phone size={18} />
-                <span>+1 (234) 567-8900</span>
+                <span> +234 7067724236</span>
               </li>
               <li className="flex items-center space-x-2">
-                <Mail size={18} />
+                <MapPin size={18} />
                 <span>Address- No 64, Ijaye Road, Benedita plaza, Ogba, Lagos 
                 </span>
               </li>
@@ -55,7 +56,7 @@ export default function Footer() {
                     <Instagram size={22} />
                   </a>
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-accent transition-colors">
-                    <MessageCircle size={22} />
+                    <FaWhatsapp size={22} />
                   </a>
                 </div>
               </li>
