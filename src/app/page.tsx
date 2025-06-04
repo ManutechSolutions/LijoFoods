@@ -1,9 +1,11 @@
+
 import Navbar from '@/components/navbar';
 import HeroSection from '@/components/hero-section';
 import CuisineSlider from '@/components/cuisine-slider';
 import ProductShowcase from '@/components/product-showcase';
 import CustomerCounter from '@/components/customer-counter';
 import ReviewSection from '@/components/review-section';
+import DeliverySection from '@/components/delivery-section';
 import MapSection from '@/components/map-section';
 import WhatsAppButton from '@/components/whatsapp-button';
 import Footer from '@/components/footer';
@@ -26,6 +28,7 @@ export default function HomePage() {
         <ProductShowcase />
         <CustomerCounter />
         <ReviewSection />
+        <DeliverySection />
         <MapSection />
       </main>
       <Footer />
