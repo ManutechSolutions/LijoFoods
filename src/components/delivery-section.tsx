@@ -14,10 +14,10 @@ export default function DeliverySection() {
   return (
     <section id="delivery" className="w-full py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <Card className="overflow-hidden shadow-lg">
+        <div className="grid md:grid-cols-2 gap-8 items-center w-full h-[inherit]">
+          <Card className="overflow-hidden shadow-lg hidden md:block md:h-[500px]">
             <Image
-              src="https://placehold.co/600x400.png"
+              src="/images/nursultan-abakirov-6kCVLM4PRio-unsplash.jpg"
               alt="Food delivery"
               width={600}
               height={400}
@@ -25,7 +25,7 @@ export default function DeliverySection() {
               data-ai-hint="food delivery scooter"
             />
           </Card>
-          <Card className="shadow-lg">
+          <Card className="shadow-lg h-[450px]">
             <CardContent className="p-8 md:p-10 text-center md:text-left">
               <div className="flex justify-center md:justify-start mb-4">
                 <PackageCheck size={48} className="text-primary" />
