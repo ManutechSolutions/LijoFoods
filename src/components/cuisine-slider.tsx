@@ -17,15 +17,15 @@ const originalDishes = [
 
 type Dish = typeof originalDishes[0];
 
-const AUTO_SCROLL_INTERVAL = 5000; // milliseconds
+const SCROLL_SPEED = 0.5; // Pixels per frame, adjust for desired speed
 
 export default function CuisineSlider() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [extendedDishes, setExtendedDishes] = useState<Dish[]>([]);
   const [isReady, setIsReady] = useState(false);
   const isTransitioningRef = useRef(false);
-  const autoScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const userInteractedRef = useRef(false);
+  const animationFrameIdRef = useRef<number | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     if (originalDishes.length === 0) {
@@ -35,106 +35,104 @@ export default function CuisineSlider() {
     setExtendedDishes([...originalDishes, ...originalDishes, ...originalDishes]);
 
     const timer = setTimeout(() => {
-      if (scrollContainerRef.current && scrollContainerRef.current.children.length > originalDishes.length) {
-        const firstOriginalItem = scrollContainerRef.current.children[originalDishes.length] as HTMLElement;
-        if (firstOriginalItem) {
-          scrollContainerRef.current.scrollTo({ left: firstOriginalItem.offsetLeft, behavior: 'smooth' });
+      if (scrollContainerRef.current && scrollContainerRef.current.children.length >= originalDishes.length * 3) {
+        const firstOriginalItemInSecondBlock = scrollContainerRef.current.children[originalDishes.length] as HTMLElement;
+        if (firstOriginalItemInSecondBlock) {
+          scrollContainerRef.current.scrollLeft = firstOriginalItemInSecondBlock.offsetLeft;
         }
       }
       setIsReady(true);
-    }, 0);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const scroll = useCallback((direction: 'left' | 'right') => {
+  const handleInfiniteScrollLogic = useCallback(() => {
+    if (!scrollContainerRef.current || !isReady || originalDishes.length === 0 || isTransitioningRef.current) {
+      return;
+    }
+  
+    const container = scrollContainerRef.current;
+    const currentScrollLeft = container.scrollLeft;
+  
+    if (container.children.length < originalDishes.length * 3) return;
+
+    const firstOriginalItemOfSecondBlock = container.children[originalDishes.length] as HTMLElement;
+    const lastOriginalItemOfSecondBlock = container.children[originalDishes.length * 2 - 1] as HTMLElement;
+    
+    if (!firstOriginalItemOfSecondBlock || !lastOriginalItemOfSecondBlock) return;
+
+    const oneBlockWidth = lastOriginalItemOfSecondBlock.offsetLeft + lastOriginalItemOfSecondBlock.offsetWidth - firstOriginalItemOfSecondBlock.offsetLeft;
+    const cardWidth = firstOriginalItemOfSecondBlock.offsetWidth || 300; 
+    
+    if (currentScrollLeft < firstOriginalItemOfSecondBlock.offsetLeft - cardWidth * 0.5 ) {
+        isTransitioningRef.current = true;
+        container.scrollLeft += oneBlockWidth;
+        requestAnimationFrame(() => { isTransitioningRef.current = false; });
+    }
+    else if (currentScrollLeft > (lastOriginalItemOfSecondBlock.offsetLeft + lastOriginalItemOfSecondBlock.offsetWidth - container.clientWidth + cardWidth * 0.5) ) {
+        isTransitioningRef.current = true;
+        container.scrollLeft -= oneBlockWidth;
+        requestAnimationFrame(() => { isTransitioningRef.current = false; });
+    }
+  }, [isReady, originalDishes.length]);
+  
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container && isReady) {
+      container.addEventListener('scroll', handleInfiniteScrollLogic);
+      return () => container.removeEventListener('scroll', handleInfiniteScrollLogic);
+    }
+  }, [isReady, handleInfiniteScrollLogic]);
+
+
+  useEffect(() => {
+    if (!isReady || isHovering || originalDishes.length <= 1) {
+      if (animationFrameIdRef.current) {
+        cancelAnimationFrame(animationFrameIdRef.current);
+        animationFrameIdRef.current = null;
+      }
+      return;
+    }
+
+    const animateScroll = () => {
+      if (scrollContainerRef.current && !isHovering) {
+        scrollContainerRef.current.scrollLeft += SCROLL_SPEED;
+      }
+      if (!isHovering) { 
+         animationFrameIdRef.current = requestAnimationFrame(animateScroll);
+      } else {
+        if (animationFrameIdRef.current) {
+            cancelAnimationFrame(animationFrameIdRef.current);
+            animationFrameIdRef.current = null;
+        }
+      }
+    };
+
+    animationFrameIdRef.current = requestAnimationFrame(animateScroll);
+
+    return () => {
+      if (animationFrameIdRef.current) {
+        cancelAnimationFrame(animationFrameIdRef.current);
+      }
+    };
+  }, [isReady, isHovering, originalDishes.length]);
+
+  const manualScroll = useCallback((direction: 'left' | 'right') => {
+    setIsHovering(true); // Pause auto-scroll on manual interaction
     if (scrollContainerRef.current) {
       const scrollAmount = 300; 
       scrollContainerRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     }
   }, []);
-
-  const handleInfiniteScroll = useCallback(() => {
-    if (!scrollContainerRef.current || !isReady || originalDishes.length === 0 || isTransitioningRef.current) {
-      return;
-    }
-
-    const container = scrollContainerRef.current;
-    const currentScrollLeft = container.scrollLeft;
-
-    const firstOriginalItem = container.children[originalDishes.length] as HTMLElement;
-    const lastOriginalItem = container.children[originalDishes.length * 2 - 1] as HTMLElement;
-    
-    if (!firstOriginalItem || !lastOriginalItem) return;
-
-    const originalBlockWidth = (lastOriginalItem.offsetLeft + lastOriginalItem.offsetWidth) - firstOriginalItem.offsetLeft;
-    const cardWidth = firstOriginalItem.offsetWidth || 300;
-
-    if (currentScrollLeft < firstOriginalItem.offsetLeft - cardWidth * 0.5 ) {
-      isTransitioningRef.current = true;
-      container.scrollLeft += originalBlockWidth;
-      requestAnimationFrame(() => { isTransitioningRef.current = false; });
-    }
-    else if (currentScrollLeft > (lastOriginalItem.offsetLeft + lastOriginalItem.offsetWidth - container.clientWidth + cardWidth * 0.5) ) {
-      isTransitioningRef.current = true;
-      container.scrollLeft -= originalBlockWidth;
-      requestAnimationFrame(() => { isTransitioningRef.current = false; });
-    }
-  }, [isReady, originalDishes.length]);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container && isReady) {
-      container.addEventListener('scroll', handleInfiniteScroll);
-      return () => container.removeEventListener('scroll', handleInfiniteScroll);
-    }
-  }, [isReady, handleInfiniteScroll]);
-
-  const startAutoScroll = useCallback(() => {
-    if (userInteractedRef.current || originalDishes.length <=1 ) return; // Don't auto-scroll if only one or no items
-    if (autoScrollTimerRef.current) clearInterval(autoScrollTimerRef.current);
-    autoScrollTimerRef.current = setInterval(() => {
-      scroll('right');
-    }, AUTO_SCROLL_INTERVAL);
-  }, [scroll]);
-
-  const stopAutoScroll = useCallback(() => {
-    if (autoScrollTimerRef.current) {
-      clearInterval(autoScrollTimerRef.current);
-      autoScrollTimerRef.current = null;
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isReady) {
-      startAutoScroll();
-    }
-    return () => stopAutoScroll();
-  }, [isReady, startAutoScroll, stopAutoScroll]);
-
-  const handleManualScroll = (direction: 'left' | 'right') => {
-    userInteractedRef.current = true;
-    stopAutoScroll();
-    scroll(direction);
-    // Optionally restart auto-scroll after a delay
-    // setTimeout(() => {
-    //   userInteractedRef.current = false;
-    //   startAutoScroll();
-    // }, AUTO_SCROLL_INTERVAL * 2); 
-  };
   
   const handleMouseEnter = () => {
-    if (originalDishes.length > 1) { // Only stop if there's something to scroll
-      userInteractedRef.current = true;
-      stopAutoScroll();
-    }
+    if (originalDishes.length > 1) setIsHovering(true);
   };
 
   const handleMouseLeave = () => {
-     if (originalDishes.length > 1) {
-      userInteractedRef.current = false;
-      startAutoScroll();
-     }
+     if (originalDishes.length > 1) setIsHovering(false);
   };
 
 
@@ -189,17 +187,17 @@ export default function CuisineSlider() {
               </div>
             ))}
           </div>
-          {isReady && originalDishes.length > 1 && ( // Only show buttons if more than one dish
+          {isReady && originalDishes.length > 1 && (
             <>
               <button 
-                onClick={() => handleManualScroll('left')} 
+                onClick={() => manualScroll('left')} 
                 aria-label="Scroll left"
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/50 hover:bg-primary/80 text-primary hover:text-primary-foreground rounded-full shadow-md transition-colors duration-300 -ml-4 md:-ml-6 hidden sm:block"
               >
                 <ChevronLeft size={28} />
               </button>
               <button 
-                onClick={() => handleManualScroll('right')} 
+                onClick={() => manualScroll('right')} 
                 aria-label="Scroll right"
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/50 hover:bg-primary/80 text-primary hover:text-primary-foreground rounded-full shadow-md transition-colors duration-300 -mr-4 md:-mr-6 hidden sm:block"
               >
@@ -212,3 +210,4 @@ export default function CuisineSlider() {
     </section>
   );
 }
+
