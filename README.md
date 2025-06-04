@@ -1,5 +1,3 @@
-# Firebase Studio
+# LijoFoods
 
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
+A landing page for  a food business owner based in Lagos, Nigeria 
