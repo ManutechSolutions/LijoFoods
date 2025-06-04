@@ -28,8 +28,8 @@ export default function HomePage() {
         <ProductShowcase />
         <CustomerCounter />
         <ReviewSection />
-        <DeliverySection />
         <MapSection />
+        <DeliverySection />
       </main>
       <Footer />
       <WhatsAppButton />

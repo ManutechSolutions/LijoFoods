@@ -72,7 +72,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="#hero" legacyBehavior>
-            <a className="flex items-center space-x-2 text-primary hover:opacity-80 transition-opacity w-[80px] h-[80px] rounded-full bg-[#9f5c2d]">
+            <a className="flex items-center space-x-2 text-primary hover:opacity-80 transition-opacity w-[50px] h-[50px] rounded-full bg-[#9f5c2d]">
               <Image src={Logo} alt='Logo' className=' object-cover'/>
               {/* <CookingPot size={32} /> */}
               {/* <span className="font-headline text-3xl">LijoFoods</span> */}
